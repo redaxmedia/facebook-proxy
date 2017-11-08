@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+const dotenv = require('dotenv');
+const proxy = require('../');
+const core = proxy.core;
+const spinner = proxy.spinner;
+
+let CORE;
+
+dotenv.config();
+if (process.env.FACEBOOK_CLIENT_ID &&
+	process.env.FACEBOOK_CLIENT_SECRET &&
+	process.env.FACEBOOK_GRANT_TYPE &&
+	process.env.SERVER_HOSTNAME &&
+	process.env.SERVER_PORT
+)
+{
+	spinner.init();
+	CORE = new core(
+	{
+		spinner: spinner
+	});
+	CORE.init(
+	{
+		client_id: process.env.FACEBOOK_CLIENT_ID,
+		client_secret: process.env.FACEBOOK_CLIENT_SECRET,
+		grant_type: process.env.FACEBOOK_GRANT_TYPE,
+	});
+	CORE.run(
+	{
+		server_hostname: process.env.SERVER_HOSTNAME,
+		server_port: process.env.SERVER_PORT
+	});
+}
+else
+{
+	process.exit(1);
+}

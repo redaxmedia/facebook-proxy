@@ -1,0 +1,47 @@
+{
+	"name": "facebook-proxy",
+	"description": "A proxy server to unleash the Facebook Graph API",
+	"version": "1.0.0",
+	"license": "GPL-3.0",
+	"keywords":
+	[
+		"facebook",
+		"proxy",
+		"api"
+	],
+	"author":
+	{
+		"name": "Henry Ruhs",
+		"url": "https://redaxmedia.com"
+	},
+	"bugs":
+	{
+		"url": "https://github.com/redaxmedia/facebook-proxy/issues"
+	},
+	"repository":
+	{
+		"type": "git",
+		"url": "https://github.com/redaxmedia/facebook-proxy.git"
+	},
+	"dependencies":
+	{
+		"dotenv": "4.0.0",
+		"express": "4.16.2",
+		"express-http-proxy": "1.0.7",
+		"request": "2.83.0",
+		"request-promise": "4.2.2",
+		"ora": "1.3.0"
+	},
+	"devDependencies":
+	{
+		"eslint": "4.10.0"
+	},
+	"scripts":
+	{
+		"lint": "node_modules/eslint/bin/eslint.js bin src"
+	},
+	"bin":
+	{
+		"twitter-drone" : "./bin/facebook-proxy"
+	}
+}

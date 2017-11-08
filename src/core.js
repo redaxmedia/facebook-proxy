@@ -1,0 +1,99 @@
+const request = require('request-promise');
+const proxy = require('express-http-proxy');
+const server = require('express')();
+const wordingArray = require('../wording.json');
+
+let spinner;
+
+/**
+ * init
+ *
+ * @since 1.0.0
+ *
+ * @param initArray array
+ */
+
+function init(initArray)
+{
+	request('https://graph.facebook.com/oauth/access_token?client_id=' + initArray.client_id + '&client_secret=' + initArray.client_secret + '&grant_type=' + initArray.grant_type,
+	{
+		json: true
+	})
+	.then(data =>
+	{
+		process.env_ACCESS_TOKEN = data.access_token;
+	})
+	.catch(error =>
+	{
+		spinner.fail(error);
+	})
+}
+
+/**
+ * run
+ *
+ * @since 1.0.0
+ *
+ * @param runArray array
+ */
+
+function run(runArray)
+{
+	server.use('/', proxy('graph.facebook.com',
+	{
+		https: true,
+		proxyReqOptDecorator: proxyReqOpts =>
+		{
+			proxyReqOpts.headers['Authorization'] = 'OAuth ' + process.env_ACCESS_TOKEN;
+			return proxyReqOpts;
+		},
+		userResDecorator: function(proxyRes, proxyResData, userReq, userRes)
+		{
+			if (userRes.statusCode === 200)
+			{
+				spinner.pass(userReq.method + ' ' + userReq.path + ' ' + userRes.statusCode);
+			}
+			else
+			{
+				spinner.fail(userReq.method + ' ' + userReq.path + ' ' + userRes.statusCode);
+			}
+			return proxyResData;
+		}
+	}));
+
+	/* listen */
+
+	server.listen(runArray.server_port, runArray.server_hostname, () =>
+	{
+		spinner.start(wordingArray.listen_on + ' ' + runArray.server_hostname + wordingArray.colon + runArray.server_port);
+	});
+}
+
+/**
+ * construct
+ *
+ * @since 1.0.0
+ *
+ * @param dependency object
+ *
+ * @return object
+ */
+
+function construct(dependency)
+{
+	const exports =
+	{
+		init: init,
+		run: run
+	};
+
+	/* inject dependency */
+
+	if (dependency.spinner)
+	{
+		spinner = dependency.spinner;
+	}
+	return exports;
+}
+
+module.exports = construct;
