@@ -42,6 +42,6 @@
 	},
 	"bin":
 	{
-		"twitter-drone" : "./bin/facebook-proxy"
+		"facebook-proxy" : "./bin/facebook-proxy"
 	}
 }
