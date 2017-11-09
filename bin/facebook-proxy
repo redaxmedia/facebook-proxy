@@ -11,8 +11,7 @@ dotenv.config();
 if (process.env.FACEBOOK_CLIENT_ID &&
 	process.env.FACEBOOK_CLIENT_SECRET &&
 	process.env.FACEBOOK_GRANT_TYPE &&
-	process.env.SERVER_HOSTNAME &&
-	process.env.SERVER_PORT
+	process.env.PORT
 )
 {
 	spinner.init();
@@ -28,8 +27,7 @@ if (process.env.FACEBOOK_CLIENT_ID &&
 	});
 	CORE.run(
 	{
-		server_hostname: process.env.SERVER_HOSTNAME,
-		server_port: process.env.SERVER_PORT
+		port: process.env.PORT
 	});
 }
 else

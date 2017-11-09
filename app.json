@@ -1,0 +1,27 @@
+{
+	"name": "facebook-proxy",
+	"description": "A proxy server to unleash the Facebook Graph API",
+	"repository": "https://github.com/redaxmedia/facebook-proxy",
+	"keywords":
+	[
+		"facebook",
+		"proxy",
+		"api"
+	],
+	"env":
+	{
+		"FACEBOOK_CLIENT_ID":
+		{
+			"required": true
+		},
+		"FACEBOOK_CLIENT_SECRET":
+		{
+			"required": true
+		},
+		"FACEBOOK_GRANT_TYPE":
+		{
+			"required": true,
+			"value": "client_credentials"
+		}
+	}
+}

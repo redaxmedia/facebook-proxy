@@ -63,9 +63,9 @@ function run(runArray)
 
 	/* listen */
 
-	server.listen(runArray.server_port, runArray.server_hostname, () =>
+	server.listen(runArray.port, () =>
 	{
-		spinner.start(wordingArray.listen_on + ' ' + runArray.server_hostname + wordingArray.colon + runArray.server_port);
+		spinner.start(wordingArray.listen_on + ' ' + wordingArray.colon + runArray.port);
 	});
 }
 
