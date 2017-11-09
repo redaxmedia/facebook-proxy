@@ -42,4 +42,4 @@ bin/facebook-proxy
 Deployment
 ----------
 
-Just trigger the [Deploy to Heroku](https://heroku.com/deploy?template=https://github.com/redaxmedia/facebook-proxy) script and fill out the form.
+Trigger [Deploy to Heroku](https://heroku.com/deploy?template=https://github.com/redaxmedia/facebook-proxy) and fill out the form.
