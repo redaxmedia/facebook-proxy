@@ -39,7 +39,7 @@
 	"scripts":
 	{
 		"start": "./bin/facebook-proxy",
-		"lint": "node_modules/eslint/bin/eslint.js bin src"
+		"lint": "eslint bin src"
 	},
 	"bin":
 	{
