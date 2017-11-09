@@ -26,8 +26,7 @@ Create a `.env` file to define your environment variables:
 FACEBOOK_CLIENT_ID=
 FACEBOOK_CLIENT_SECRET=
 FACEBOOK_GRANT_TYPE=
-SERVER_HOSTNAME=
-SERVER_PORT=
+PORT=
 ```
 
 
