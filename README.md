@@ -1,7 +1,7 @@
 Facebook Proxy
 ==============
 
-> A proxy server to unleash the Facebook Graph API.
+> A proxy server to unleash the Facebook Graph API without the need of user authentication.
 
 [![Build Status](https://img.shields.io/travis/redaxmedia/facebook-proxy.svg)](https://travis-ci.org/redaxmedia/facebook-proxy)
 [![Dependency Status](https://gemnasium.com/badges/github.com/redaxmedia/facebook-proxy.svg)](https://gemnasium.com/github.com/redaxmedia/facebook-proxy)
