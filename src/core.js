@@ -21,7 +21,7 @@ function init(initArray)
 	})
 	.then(data =>
 	{
-		process.env_ACCESS_TOKEN = data.access_token;
+		process.env.ACCESS_TOKEN = data.access_token;
 	})
 	.catch(error =>
 	{
@@ -44,7 +44,7 @@ function run(runArray)
 		https: true,
 		proxyReqOptDecorator: proxyReqOpts =>
 		{
-			proxyReqOpts.headers['Authorization'] = 'OAuth ' + process.env_ACCESS_TOKEN;
+			proxyReqOpts.headers['Authorization'] = 'OAuth ' + process.env.ACCESS_TOKEN;
 			return proxyReqOpts;
 		},
 		userResDecorator: function(proxyRes, proxyResData, userReq, userRes)
