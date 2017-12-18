@@ -49,13 +49,13 @@ function run(runArray)
 		},
 		userResDecorator: function(proxyRes, proxyResData, userReq, userRes)
 		{
-			if (userRes.statusCode === 200)
+			if (userRes.statusCode > 399 && userRes.statusCode < 600)
 			{
-				spinner.pass(userReq.method + ' ' + userReq.path + ' ' + userRes.statusCode);
+				spinner.fail(userReq.method + ' ' + userReq.path + ' ' + userRes.statusCode);
 			}
 			else
 			{
-				spinner.fail(userReq.method + ' ' + userReq.path + ' ' + userRes.statusCode);
+				spinner.pass(userReq.method + ' ' + userReq.path + ' ' + userRes.statusCode);
 			}
 			return proxyResData;
 		}
