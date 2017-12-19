@@ -47,7 +47,7 @@ function run(runArray)
 			proxyReqOpts.headers['Authorization'] = 'OAuth ' + process.env.ACCESS_TOKEN;
 			return proxyReqOpts;
 		},
-		userResDecorator: function(proxyRes, proxyResData, userReq, userRes)
+		userResDecorator: (proxyRes, proxyResData, userReq, userRes) =>
 		{
 			if (userRes.statusCode > 399 && userRes.statusCode < 600)
 			{
