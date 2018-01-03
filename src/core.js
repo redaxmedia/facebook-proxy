@@ -15,7 +15,7 @@ let spinner;
 
 function init(initArray)
 {
-	request('https://graph.facebook.com/oauth/access_token?client_id=' + initArray.client_id + '&client_secret=' + initArray.client_secret + '&grant_type=' + initArray.grant_type,
+	request('https://graph.facebook.com/oauth/access_token?client_id=' + initArray.clientId + '&client_secret=' + initArray.clientSecret + '&grant_type=' + initArray.grantType,
 	{
 		json: true
 	})
@@ -44,7 +44,7 @@ function run(runArray)
 		https: true,
 		proxyReqOptDecorator: proxyReqOpts =>
 		{
-			proxyReqOpts.headers['Authorization'] = 'OAuth ' + process.env.ACCESS_TOKEN;
+			proxyReqOpts.headers['Authorization'] = 'OAuth ' + runArray.accessToken;
 			return proxyReqOpts;
 		},
 		userResDecorator: (proxyRes, proxyResData, userReq, userRes) =>
