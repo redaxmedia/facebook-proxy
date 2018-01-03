@@ -11,17 +11,19 @@ let spinner;
  * @since 1.0.0
  *
  * @param initArray array
+ *
+ * @return Promise
  */
 
 function init(initArray)
 {
-	request('https://graph.facebook.com/oauth/access_token?client_id=' + initArray.clientId + '&client_secret=' + initArray.clientSecret + '&grant_type=' + initArray.grantType,
+	return request('https://graph.facebook.com/oauth/access_token?client_id=' + initArray.clientId + '&client_secret=' + initArray.clientSecret + '&grant_type=' + initArray.grantType,
 	{
 		json: true
 	})
 	.then(data =>
 	{
-		process.env.ACCESS_TOKEN = data.access_token;
+		return data.access_token;
 	})
 	.catch(error =>
 	{

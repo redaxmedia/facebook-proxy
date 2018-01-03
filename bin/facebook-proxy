@@ -24,11 +24,14 @@ if (process.env.FACEBOOK_CLIENT_ID &&
 		clientId: process.env.FACEBOOK_CLIENT_ID,
 		clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
 		grantType: process.env.FACEBOOK_GRANT_TYPE
-	});
-	CORE.run(
+	})
+	.then(accessToken =>
 	{
-		accessToken: process.env.ACCESS_TOKEN,
-		port: process.env.PORT
+		CORE.run(
+		{
+			accessToken: accessToken,
+			port: process.env.PORT
+		});
 	});
 }
 else
