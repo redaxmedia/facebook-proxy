@@ -9,5 +9,9 @@
 	"extends":
 	[
 		"eslint:recommended"
-	]
+	],
+	"rules":
+	{
+		"object-shorthand": "error"
+	}
 }

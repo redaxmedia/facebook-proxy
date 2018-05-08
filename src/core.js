@@ -85,8 +85,8 @@ function construct(dependency)
 {
 	const exports =
 	{
-		init: init,
-		run: run
+		init,
+		run
 	};
 
 	/* inject dependency */

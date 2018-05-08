@@ -58,8 +58,8 @@ function init(initArray)
 
 module.exports =
 {
-	init: init,
-	start: start,
-	pass: pass,
-	fail: fail
+	init,
+	start,
+	pass,
+	fail
 };

@@ -17,7 +17,7 @@ if (process.env.FACEBOOK_CLIENT_ID &&
 	spinner.init();
 	CORE = new core(
 	{
-		spinner: spinner
+		spinner
 	});
 	CORE.init(
 	{
@@ -29,7 +29,7 @@ if (process.env.FACEBOOK_CLIENT_ID &&
 	{
 		CORE.run(
 		{
-			accessToken: accessToken,
+			accessToken,
 			port: process.env.PORT
 		});
 	});
