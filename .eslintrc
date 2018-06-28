@@ -6,10 +6,6 @@
 	},
 	"extends":
 	[
-		"eslint:recommended"
-	],
-	"rules":
-	{
-		"object-shorthand": "error"
-	}
+		"eslint-config-redaxmedia"
+	]
 }
