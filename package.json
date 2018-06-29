@@ -35,7 +35,7 @@
 	"devDependencies":
 	{
 		"eslint": "5.0.1",
-		"eslint-config-redaxmedia": "https://github.com/redaxmedia/eslint-config-redaxmedia.git"
+		"eslint-config-redaxmedia": "1.0.1"
 	},
 	"scripts":
 	{
