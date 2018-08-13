@@ -1,7 +1,7 @@
 {
 	"name": "facebook-proxy",
 	"description": "A proxy server to unleash the Facebook Graph API without the need of user authentication",
-	"version": "1.1.8",
+	"version": "1.1.9",
 	"license": "GPL-3.0",
 	"keywords":
 	[
@@ -28,13 +28,13 @@
 		"dotenv": "6.0.0",
 		"express": "4.16.3",
 		"express-http-proxy": "1.2.0",
-		"request": "2.87.0",
+		"request": "2.88.0",
 		"request-promise": "4.2.2",
-		"ora": "2.1.0"
+		"ora": "3.0.0"
 	},
 	"devDependencies":
 	{
-		"eslint": "5.0.1",
+		"eslint": "5.3.0",
 		"eslint-config-redaxmedia": "1.0.1"
 	},
 	"scripts":

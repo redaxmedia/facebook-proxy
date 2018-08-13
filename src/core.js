@@ -46,7 +46,7 @@ function run(runArray)
 		https: true,
 		proxyReqOptDecorator: proxyReqOpts =>
 		{
-			proxyReqOpts.headers['Authorization'] = 'OAuth ' + runArray.accessToken;
+			proxyReqOpts.headers['Authorization'] = 'Bearer ' + runArray.accessToken;
 			return proxyReqOpts;
 		},
 		userResDecorator: (proxyRes, proxyResData, userReq, userRes) =>
