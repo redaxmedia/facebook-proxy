@@ -18,8 +18,16 @@ Preview
 Installation
 ------------
 
+Clone the repository:
+
 ```
-npm install facebook-proxy
+git clone https://github.com/redaxmedia/facebook-proxy.git
+```
+
+Install the dependencies:
+
+```
+npm install
 ```
 
 
