@@ -28,7 +28,7 @@ function init(initArray)
 	.catch(error =>
 	{
 		spinner.fail(error);
-	})
+	});
 }
 
 /**
