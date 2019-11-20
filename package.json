@@ -1,7 +1,7 @@
 {
 	"name": "facebook-proxy",
 	"description": "A proxy server to unleash the Facebook Graph API without the need of user authentication",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"license": "GPL-3.0",
 	"keywords":
 	[
