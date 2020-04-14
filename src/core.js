@@ -75,12 +75,12 @@ function run(runObject)
  *
  * @since 1.0.0
  *
- * @param {object} injectObject
+ * @param {object} injectorObject
  *
  * @return {object}
  */
 
-function construct(injectObject)
+function construct(injectorObject)
 {
 	const exports =
 	{
@@ -88,9 +88,11 @@ function construct(injectObject)
 		run
 	};
 
-	if (injectObject.spinner)
+	/* handle injector */
+
+	if (injectorObject.spinner)
 	{
-		spinner = injectObject.spinner;
+		spinner = injectorObject.spinner;
 	}
 	return exports;
 }
