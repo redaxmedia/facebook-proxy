@@ -1,6 +1,6 @@
 {
 	"name": "facebook-proxy",
-	"description": "A proxy server to unleash the Facebook Graph API without the need of user authentication",
+	"description": "A dead simple HTTP proxy to unleash the Facebook API",
 	"repository": "https://github.com/redaxmedia/facebook-proxy",
 	"keywords":
 	[
