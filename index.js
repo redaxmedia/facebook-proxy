@@ -1,5 +1,4 @@
 module.exports =
 {
-	core: require('./src/core'),
-	spinner: require('./src/spinner')
+	core: require('./src/core')
 };

@@ -1,7 +1,7 @@
 Facebook Proxy
 ==============
 
-> A proxy server to unleash the Facebook Graph API without the need of user authentication.
+> A proxy server to unleash the Facebook API.
 
 [![Build Status](https://img.shields.io/travis/redaxmedia/facebook-proxy.svg)](https://travis-ci.org/redaxmedia/facebook-proxy)
 [![NPM Version](https://img.shields.io/npm/v/facebook-proxy.svg)](https://npmjs.com/package/facebook-proxy)
@@ -12,16 +12,8 @@ Facebook Proxy
 Installation
 ------------
 
-Clone the repository:
-
 ```
-git clone https://github.com/redaxmedia/facebook-proxy.git
-```
-
-Install the dependencies:
-
-```
-npm install
+npm install facebook-proxy 
 ```
 
 

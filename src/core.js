@@ -1,7 +1,7 @@
-const request = require('request-promise');
+const fetch = require('node-fetch');
 const proxy = require('express-http-proxy');
 const server = require('express')();
-const wordingArray = require('../wording.json');
+const wordingObject = require('../wording.json');
 
 let spinner;
 
@@ -10,25 +10,22 @@ let spinner;
  *
  * @since 1.0.0
  *
- * @param initArray array
+ * @param {object} initObject
  *
- * @return Promise
+ * @return {Promise}
  */
 
-function init(initArray)
+function init(initObject)
 {
-	return request('https://graph.facebook.com/oauth/access_token?client_id=' + initArray.clientId + '&client_secret=' + initArray.clientSecret + '&grant_type=' + initArray.grantType,
-	{
-		json: true
-	})
-	.then(data =>
-	{
-		return data.access_token;
-	})
-	.catch(error =>
-	{
-		spinner.fail(error);
-	});
+	let params = new URLSearchParams();
+
+	params.set('client_id', initObject.clientId);
+	params.set('client_secret', initObject.clientSecret);
+	params.set('grant_type', initObject.grantType);
+	return fetch('https://graph.facebook.com/oauth/access_token?' + params)
+		.then(response => response.json())
+		.then(data => data.access_token)
+		.catch(error => spinner.fail(error));
 }
 
 /**
@@ -36,17 +33,19 @@ function init(initArray)
  *
  * @since 1.0.0
  *
- * @param runArray array
+ * @param {object} runObject
+ *
+ * @return {void}
  */
 
-function run(runArray)
+function run(runObject)
 {
 	server.use('/', proxy('graph.facebook.com',
 	{
 		https: true,
 		proxyReqOptDecorator: proxyReqOpts =>
 		{
-			proxyReqOpts.headers['Authorization'] = 'Bearer ' + runArray.accessToken;
+			proxyReqOpts.headers['Authorization'] = 'Bearer ' + runObject.accessToken;
 			return proxyReqOpts;
 		},
 		userResDecorator: (proxyRes, proxyResData, userReq, userRes) =>
@@ -57,7 +56,7 @@ function run(runArray)
 			}
 			else
 			{
-				spinner.pass(userReq.method + ' ' + userReq.path + ' ' + userRes.statusCode);
+				spinner.succeed(userReq.method + ' ' + userReq.path + ' ' + userRes.statusCode);
 			}
 			return proxyResData;
 		}
@@ -65,9 +64,9 @@ function run(runArray)
 
 	/* listen */
 
-	server.listen(runArray.port, () =>
+	server.listen(runObject.port, () =>
 	{
-		spinner.start(wordingArray.listen_on + ' ' + wordingArray.colon + runArray.port);
+		spinner.start(wordingObject.listen_on + ' ' + wordingObject.colon + runObject.port);
 	});
 }
 
@@ -76,12 +75,12 @@ function run(runArray)
  *
  * @since 1.0.0
  *
- * @param dependency object
+ * @param {object} injectObject
  *
- * @return object
+ * @return {object}
  */
 
-function construct(dependency)
+function construct(injectObject)
 {
 	const exports =
 	{
@@ -89,11 +88,9 @@ function construct(dependency)
 		run
 	};
 
-	/* inject dependency */
-
-	if (dependency.spinner)
+	if (injectObject.spinner)
 	{
-		spinner = dependency.spinner;
+		spinner = injectObject.spinner;
 	}
 	return exports;
 }
