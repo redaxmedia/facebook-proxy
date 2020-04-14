@@ -1,6 +1,6 @@
 {
 	"name": "facebook-proxy",
-	"description": "A proxy server to unleash the Facebook API",
+	"description": "A dead simple HTTP proxy to unleash the Facebook API",
 	"version": "2.0.0",
 	"license": "MIT",
 	"keywords":

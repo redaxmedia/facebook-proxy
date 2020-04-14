@@ -1,7 +1,7 @@
 Facebook Proxy
 ==============
 
-> A proxy server to unleash the Facebook API.
+> A dead simple HTTP proxy to unleash the Facebook API.
 
 [![Build Status](https://img.shields.io/travis/redaxmedia/facebook-proxy.svg)](https://travis-ci.org/redaxmedia/facebook-proxy)
 [![NPM Version](https://img.shields.io/npm/v/facebook-proxy.svg)](https://npmjs.com/package/facebook-proxy)
@@ -13,7 +13,7 @@ Installation
 ------------
 
 ```
-npm install facebook-proxy 
+npm install facebook-proxy
 ```
 
 
@@ -34,7 +34,7 @@ Usage
 -----
 
 ```
-bin/facebook-proxy
+facebook-proxy
 ```
 
 
