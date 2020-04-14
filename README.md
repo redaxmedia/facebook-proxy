@@ -33,6 +33,8 @@ PORT=
 Usage
 -----
 
+Run the command:
+
 ```
 facebook-proxy
 ```
