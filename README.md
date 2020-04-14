@@ -39,7 +39,7 @@ Serve local HTTP proxy:
 facebook-proxy
 ```
 
-Browse your HTTP proxy:
+Browse your working copy:
 
 ```
 http://localhost:3000
