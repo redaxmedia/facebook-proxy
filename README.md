@@ -25,18 +25,24 @@ Create a `.env` file to define your environment variables:
 ```
 FACEBOOK_CLIENT_ID=
 FACEBOOK_CLIENT_SECRET=
-FACEBOOK_GRANT_TYPE=
-PORT=
+FACEBOOK_GRANT_TYPE=client_credentials
+PORT=3000
 ```
 
 
 Usage
 -----
 
-Run the command:
+Serve local HTTP proxy:
 
 ```
 facebook-proxy
+```
+
+Browse your HTTP proxy:
+
+```
+http://localhost:3000
 ```
 
 
