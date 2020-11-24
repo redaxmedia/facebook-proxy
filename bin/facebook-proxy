@@ -31,7 +31,8 @@ if (process.env.FACEBOOK_CLIENT_ID &&
 			accessToken,
 			port: process.env.PORT
 		});
-	});
+	})
+	.catch(() => process.exit(1));
 }
 else
 {
